@@ -425,7 +425,7 @@ col3.metric('Active repositories in 2023', millify(df000['total_repositories'][0
 
 col1,col2,col3 =st.columns(3)
 with col1:
-    st.metric('Total Near pull requests', millify(df3['total_pulls'][0]))
+    st.metric('Total Near pull requests', millify(df0['total_pulls'][0]))
 col2.metric('Active pull requests in 2022', millify(df00['total_pulls'][0]))
 col3.metric('Active pull requests in 2023', millify(df000['total_pulls'][0]))
 
