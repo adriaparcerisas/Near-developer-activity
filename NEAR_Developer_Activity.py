@@ -2823,12 +2823,6 @@ fig1.update_layout(
     title='Distribution of developers by retention time',
     xaxis_tickfont_size=14,
     yaxis_tickfont_size=14,
-    legend=dict(
-        x=0,
-        y=1.0,
-        bgcolor='rgba(255, 255, 255, 0)',
-        bordercolor='rgba(255, 255, 255, 0)'
-    ),
     bargap=0.15, # gap between bars of adjacent location coordinates.
     bargroupgap=0.1 # gap between bars of the same location coordinate.
 )
