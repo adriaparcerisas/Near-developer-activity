@@ -2631,7 +2631,7 @@ when n_days between 181 and 210 then 'After Six months'
 when n_days > 210 then 'More than six months' end as duration_time,
 count(DISTINCT(user)) as total_users
 from final_2
-group by 2
+group by 1
 
 """
 
