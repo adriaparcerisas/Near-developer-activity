@@ -16,9 +16,8 @@ import numpy as np
 import plotly.express as px
 sdk = ShroomDK("7bfe27b2-e726-4d8d-b519-03abc6447728")
 st.cache(suppress_st_warning=True)
+st.set_page_config(page_title="Near Developer Activity", layout="wide",initial_sidebar_state="collapsed")
 
-
-st.title('Near Developer Activity')
 
 
 # In[20]:
