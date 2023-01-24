@@ -2618,20 +2618,20 @@ from final
 qualify tx_date is not null
 )
 select 
-case when n_days = 0 then 'Same Day'
-when n_days = 1 then '1 Day'
-when n_days between 1 and 7 then 'Less than a week'
-when n_days between 8 and 30 then 'Less than a month'
-when n_days between 31 and 60 then 'After a month'
-when n_days between 61 and 90 then 'After Two months'
-when n_days between 91 and 120 then 'After Three months'
-when n_days between 121 and 150 then 'After Four months'
-when n_days between 151 and 180 then 'After Five months'
-when n_days between 181 and 210 then 'After Six months'
-when n_days > 210 then 'More than six months' end as duration_time,
+case when n_days = 0 then 'A. Same Day'
+when n_days = 1 then 'B. 1 Day'
+when n_days between 1 and 7 then 'C. Less than a week'
+when n_days between 8 and 30 then 'D. Less than a month'
+when n_days between 31 and 60 then 'E. After a month'
+when n_days between 61 and 90 then 'F. After Two months'
+when n_days between 91 and 120 then 'G. After Three months'
+when n_days between 121 and 150 then 'H. After Four months'
+when n_days between 151 and 180 then 'I. After Five months'
+when n_days between 181 and 210 then 'J. After Six months'
+when n_days > 210 then 'K. More than six months' end as duration_time,
 count(DISTINCT(user)) as total_users
 from final_2
-group by 1
+group by 1 order by 1 asc 
 
 """
 
