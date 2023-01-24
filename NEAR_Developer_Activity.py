@@ -1303,16 +1303,13 @@ st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
 # In[38]:
 
 
-tab1, tab2, tab3 = st.tabs(["Developers by relationship so far", "Developers by relationship in 2022"])
+tab1, tab2 = st.tabs(["Developers by relationship so far", "Developers by relationship in 2022"])
 
 with tab1:
     st.plotly_chart(fig4, theme="streamlit", use_container_width=True)
 
 with tab2:
-    st.plotly_chart(fig5, theme="streamlit", use_container_width=True)
-    
-with tab3:
-    st.plotly_chart(fig6, theme="streamlit", use_container_width=True)    
+    st.plotly_chart(fig5, theme="streamlit", use_container_width=True) 
     
 
 import plotly.express as px
