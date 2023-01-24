@@ -876,12 +876,12 @@ fig1 = make_subplots(specs=[[{"secondary_y": True}]])
 
 fig1.add_trace(go.Bar(x=df['date'],
                 y=df['pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
 fig1.add_trace(go.Line(x=df['date'],
                 y=df['cum_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -909,12 +909,12 @@ fig2 = make_subplots(specs=[[{"secondary_y": True}]])
 
 fig2.add_trace(go.Bar(x=df2['date'],
                 y=df2['pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
 fig2.add_trace(go.Line(x=df2['date'],
                 y=df2['cum_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -941,12 +941,12 @@ fig2.update_yaxes(title_text="Total active pulls", secondary_y=True)
 fig3 = make_subplots(specs=[[{"secondary_y": True}]])
 fig3.add_trace(go.Bar(x=df3['date'],
                 y=df3['pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
 fig3.add_trace(go.Line(x=df3['date'],
                 y=df3['cum_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -968,7 +968,7 @@ fig3.update_layout(
 fig3.update_yaxes(title_text="Monthly active pulls", secondary_y=False)
 fig3.update_yaxes(title_text="Total active pulls", secondary_y=True)
 
-tab1, tab2, tab3 = st.tabs(["Daily pulls", "Weekly pulls", "Monthly pulls"])
+tab1, tab2, tab3 = st.tabs(["Daily PRs", "Weekly PRs", "Monthly PRs"])
 
 with tab1:
     st.plotly_chart(fig1, theme="streamlit", use_container_width=True)
@@ -985,12 +985,12 @@ fig4 = make_subplots(specs=[[{"secondary_y": True}]])
 
 fig4.add_trace(go.Bar(x=df7['debut'],
                 y=df7['new_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
 fig4.add_trace(go.Line(x=df7['debut'],
                 y=df7['cum_new_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -1017,12 +1017,12 @@ fig5 = make_subplots(specs=[[{"secondary_y": True}]])
 
 fig5.add_trace(go.Bar(x=df8['debut'],
                 y=df8['new_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
 fig5.add_trace(go.Line(x=df8['debut'],
                 y=df8['cum_new_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -1050,12 +1050,12 @@ fig6 = make_subplots(specs=[[{"secondary_y": True}]])
 
 fig6.add_trace(go.Bar(x=df9['debut'],
                 y=df9['new_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
 fig6.add_trace(go.Line(x=df9['debut'],
                 y=df9['cum_new_pulls'],
-                name='# of repos',
+                name='# of PRs',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -1077,7 +1077,7 @@ fig6.update_layout(
 fig6.update_yaxes(title_text="Monthly new Near pulls", secondary_y=False)
 fig6.update_yaxes(title_text="Total new Near pulls", secondary_y=True)
 
-tab1, tab2, tab3 = st.tabs(["Daily new pulls", "Weekly new pulls", "Monthly new pulls"])
+tab1, tab2, tab3 = st.tabs(["Daily new PRs", "Weekly new PRs", "Monthly new PRs"])
 
 with tab1:
     st.plotly_chart(fig4, theme="streamlit", use_container_width=True)
@@ -1303,23 +1303,7 @@ st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
 # In[38]:
 
 
-fig3 = go.Figure([go.Scatter(x=df000['type'], y=df000['total_developers'],marker_color=px.colors.qualitative.Plotly)])
-fig3.update_layout(
-    title='Distribution of Near developers by relationship in 2023',
-    xaxis_tickfont_size=14,
-    yaxis_tickfont_size=14,
-    legend=dict(
-        x=0,
-        y=1.0,
-        bgcolor='rgba(255, 255, 255, 0)',
-        bordercolor='rgba(255, 255, 255, 0)'
-    ),
-    bargap=0.15, # gap between bars of adjacent location coordinates.
-    bargroupgap=0.1 # gap between bars of the same location coordinate.
-)
-st.plotly_chart(fig3, theme="streamlit", use_container_width=True)
-
-tab1, tab2, tab3 = st.tabs(["Developers by relationship so far", "Developers by relationship in 2022", "Developers by relationship in 2023"])
+tab1, tab2, tab3 = st.tabs(["Developers by relationship so far", "Developers by relationship in 2022"])
 
 with tab1:
     st.plotly_chart(fig4, theme="streamlit", use_container_width=True)
