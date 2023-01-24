@@ -1096,7 +1096,7 @@ sql0="""
 SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as total_developers
-from near.beta.github_activity --where block_timestamp between '2022-01-01' and '2023-01-01'
+from near.beta.github_activity --where updatedat between '2022-01-01' and '2023-01-01'
 group by 1
 """
 
@@ -1104,7 +1104,7 @@ sql00="""
 SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as total_developers
-from near.beta.github_activity where block_timestamp between '2022-01-01' and '2023-01-01'
+from near.beta.github_activity where updatedat between '2022-01-01' and '2023-01-01'
 group by 1
 """
 
@@ -1112,7 +1112,7 @@ sql000="""
 SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as total_developers
-from near.beta.github_activity where block_timestamp >= '2023-01-01'
+from near.beta.github_activity where updatedat >= '2023-01-01'
 group by 1
 """
 
