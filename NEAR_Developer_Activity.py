@@ -1298,11 +1298,6 @@ fig2.update_layout(
     bargroupgap=0.1 # gap between bars of the same location coordinate.
 )
 
-
-st.plotly_chart(fig1, theme="streamlit", use_container_width=True)
-st.plotly_chart(fig2, theme="streamlit", use_container_width=True)
-
-
 # In[38]:
 
 
