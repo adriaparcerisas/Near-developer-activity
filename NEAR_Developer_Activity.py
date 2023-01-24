@@ -17,6 +17,7 @@ import plotly.express as px
 sdk = ShroomDK("7bfe27b2-e726-4d8d-b519-03abc6447728")
 st.cache(suppress_st_warning=True)
 st.set_page_config(page_title="Near Developer Activity", layout="wide",initial_sidebar_state="collapsed")
+st.title('Near Developer Activity')
 
 
 
@@ -57,7 +58,7 @@ SELECT
   count(distinct author) as total_developers,
 count(distinct id) as total_pulls,
   count(distinct repo) as total_repositories
-from near.beta.github_activity where block_timestamp between '2022-01-01' and '2023-01-01'
+from near.beta.github_activity where updatedat between '2022-01-01' and '2023-01-01'
 """
 
 sql000 = f"""
@@ -65,7 +66,7 @@ SELECT
   count(distinct author) as total_developers,
 count(distinct id) as total_pulls,
   count(distinct repo) as total_repositories
-from near.beta.github_activity where block_timestamp >= '2023-01-01'
+from near.beta.github_activity where updatedat >= '2023-01-01'
 """
 
 sql = f"""
@@ -77,7 +78,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '1 MONTH'
   group by 1
 order by 1 asc 
 """
@@ -91,7 +92,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -117,7 +118,7 @@ sql4="""
 with news as (
   SELECT
   distinct author,
-  min(trunc(updatedat,'day')) as debut
+  min(trunc(createdat,'day')) as debut
   from near.beta.github_activity
   group by 1
   )
@@ -135,7 +136,7 @@ sql5="""
 with news as (
   SELECT
   distinct author,
-  min(trunc(updatedat,'week')) as debut
+  min(trunc(createdat,'week')) as debut
   from near.beta.github_activity
   group by 1
   )
@@ -153,7 +154,7 @@ sql6="""
 with news as (
   SELECT
   distinct author,
-  min(trunc(updatedat,'month')) as debut
+  min(trunc(createdat,'month')) as debut
   from near.beta.github_activity
   group by 1
   )
@@ -1122,7 +1123,7 @@ SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as developers,
   sum(developers) over (order by date) as cum_developers
-from near.beta.github_activity where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '1 MONTH'
   group by 1,2
 order by 1 asc 
 """
@@ -1133,7 +1134,7 @@ SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as developers,
   sum(developers) over (order by date) as cum_developers
-from near.beta.github_activity where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1,2
 order by 1 asc 
 
@@ -1158,7 +1159,7 @@ with news as (
   SELECT
   distinct author,
   AUTHORASSOCIATION as type,
-  min(trunc(updatedat,'day')) as debut
+  min(trunc(createdat,'day')) as debut
   from near.beta.github_activity
   group by 1,2
   )
@@ -1176,7 +1177,7 @@ sql5="""
 with news as (
   SELECT
   distinct author,AUTHORASSOCIATION as type,
-  min(trunc(updatedat,'week')) as debut
+  min(trunc(createdat,'week')) as debut
   from near.beta.github_activity
   group by 1,2
   )
@@ -1194,7 +1195,7 @@ sql6="""
 with news as (
   SELECT
   distinct author,AUTHORASSOCIATION as type,
-  min(trunc(updatedat,'month')) as debut
+  min(trunc(createdat,'month')) as debut
   from near.beta.github_activity
   group by 1,2
   )
@@ -1942,7 +1943,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '1 MONTH'
   group by 1
 order by 1 asc
   )
@@ -1972,7 +1973,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc
   )
@@ -2027,7 +2028,7 @@ WITH
 news as (
   SELECT
   distinct author,
-  min(trunc(updatedat,'day')) as debut
+  min(trunc(createdat,'day')) as debut
   from near.beta.github_activity
   group by 1
   ),
@@ -2060,7 +2061,7 @@ WITH
 news as (
   SELECT
   distinct author,
-  min(trunc(updatedat,'week')) as debut
+  min(trunc(createdat,'week')) as debut
   from near.beta.github_activity
   group by 1
   ),
@@ -2092,7 +2093,7 @@ WITH
 news as (
   SELECT
   distinct author,
-  min(trunc(updatedat,'month')) as debut
+  min(trunc(createdat,'month')) as debut
   from near.beta.github_activity
   group by 1
   ),
@@ -2602,7 +2603,7 @@ WITH
   new_users as (
   SELECT
   distinct author as users,
-  min(updatedat::date) as debut
+  min(createdat::date) as debut
   from near.beta.github_activity
     where updatedat between CURRENT_DATE-INTERVAL '3 MONTH' and CURRENT_DATE-INTERVAL '2 MONTH'
   group by 1
@@ -2613,7 +2614,6 @@ distinct author as users,
   updatedat::date as date
   from near.beta.github_activity
   where author in (select users from new_users)
-  --join new_users y on x.payer=y.users and block_timestamp::date BETWEEN debut and debut + INTERVAL '1 WEEK'
   and updatedat >=CURRENT_DATE-INTERVAL '1 MONTH'
   )
 select 
@@ -2629,7 +2629,6 @@ sql2 = f"""
 with final as 
   (select (updatedat) as date, author as user
 from near.beta.github_activity
---where updatedat::date >= '2022-05-01'
 ),
 final_2 as 
   ( select lag(date, 1) ignore nulls over (partition by user order by date asc) as tx_date,
