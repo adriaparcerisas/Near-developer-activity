@@ -1435,7 +1435,7 @@ with tab3:
     
     
     
-fig1 = px.line(df4, x="date", y="new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig1 = px.line(df4, x="debut", y="new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig1.update_layout(
     title='Daily new developers by relationship',
     xaxis_tickfont_size=14,
@@ -1451,7 +1451,7 @@ fig1.update_layout(
 )
 
 
-fig2 = px.line(df5, x="date", y="new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig2 = px.line(df5, x="debut", y="new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig2.update_layout(
     title='Weekly new developers by relationship',
     xaxis_tickfont_size=14,
@@ -1466,7 +1466,7 @@ fig2.update_layout(
     bargroupgap=0.1 # gap between bars of the same location coordinate.
 )
 
-fig3 = px.line(df6, x="date", y="new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig3 = px.line(df6, x="debut", y="new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig3.update_layout(
     title='Monthly new developers by relationship',
     xaxis_tickfont_size=14,
@@ -1494,7 +1494,7 @@ with tab3:
     
     
     
-fig1 = px.line(df4, x="date", y="cum_new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig1 = px.line(df4, x="debut", y="cum_new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig1.update_layout(
     title='Total daily new developers by relationship',
     xaxis_tickfont_size=14,
@@ -1510,7 +1510,7 @@ fig1.update_layout(
 )
 
 
-fig2 = px.line(df5, x="date", y="cum_new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig2 = px.line(df5, x="debut", y="cum_new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig2.update_layout(
     title='Total weekly new developers by relationship',
     xaxis_tickfont_size=14,
@@ -1525,7 +1525,7 @@ fig2.update_layout(
     bargroupgap=0.1 # gap between bars of the same location coordinate.
 )
 
-fig3 = px.line(df6, x="date", y="cum_new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig3 = px.line(df6, x="debut", y="cum_new_developers", color="type", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig3.update_layout(
     title='Total monthly new developers by relationship',
     xaxis_tickfont_size=14,
