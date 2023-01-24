@@ -78,7 +78,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '1 MONTH'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc 
 """
@@ -92,7 +92,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -126,7 +126,7 @@ with news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -144,7 +144,7 @@ with news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -180,7 +180,7 @@ with news as (
   debut,
   count(distinct pulls) as new_pulls,
   sum(new_pulls) over (order by debut) as cum_new_pulls
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -198,7 +198,7 @@ with news as (
   debut,
   count(distinct pulls) as new_pulls,
   sum(new_pulls) over (order by debut) as cum_new_pulls
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -234,7 +234,7 @@ with news as (
   debut,
   count(distinct repositories) as new_repositories,
   sum(new_repositories) over (order by debut) as cum_new_repositories
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -251,7 +251,7 @@ with news as (
   debut,
   count(distinct repositories) as new_repositories,
   sum(new_repositories) over (order by debut) as cum_new_repositories
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
 """
@@ -348,11 +348,11 @@ df12.info()
 st.subheader('New and active developer activity')
 st.write('The first metrics to be analyzed are the new and active developers as well as its activity over the past days,weeks and months.')
 st.write('In concrete, the following charts shows:')
-st.write('- Last month active and new developers (daily and cumulative)')
-st.write('- Last 3 months active and new developers (weekly and cumulative)')
+st.write('- Last 3 months active and new developers (daily and cumulative)')
+st.write('- Last 6 months active and new developers (weekly and cumulative)')
 st.write('- Active and new developers over time (monthly and cumulative)')
-st.write('- Last month total and new repositories and pull requests (daily and cumulative)')
-st.write('- Last 3 months total and new repositories and pull requests (weekly and cumulative)')
+st.write('- Last 3 months total and new repositories and pull requests (daily and cumulative)')
+st.write('- Last 6 months total and new repositories and pull requests (weekly and cumulative)')
 st.write('- Total and new repositories and pull requests over time (monthly and cumulative)')
 st.write('')
 
@@ -1123,7 +1123,7 @@ SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as developers,
   sum(developers) over (order by date) as cum_developers
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '1 MONTH'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1,2
 order by 1 asc 
 """
@@ -1134,7 +1134,7 @@ SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as developers,
   sum(developers) over (order by date) as cum_developers
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1,2
 order by 1 asc 
 
@@ -1167,7 +1167,7 @@ with news as (
   debut,type,
   count(distinct author) as new_developers,
   sum(new_developers) over (partition by type order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1,2
 order by 1 asc 
 
@@ -1185,7 +1185,7 @@ with news as (
   debut,type,
   count(distinct author) as new_developers,
   sum(new_developers) over (partition by type order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1,2
 order by 1 asc 
 
@@ -1258,8 +1258,8 @@ st.subheader('Type of Near developers by relationship')
 st.write('The second batch metrics to be analyzed are the type of developers that are entering the Near protocol in the recent days,weeks and months based on the relationship with the protocol.')
 st.write('Depending on the association with the project, each developer has a destined role which can be: **COLLABORATOR, FIRST_TIME_CONTRIBUTOR, MEMBER, OWNER or CONTRIBUTOR**.')
 st.write('In concrete, the following charts shows:')
-st.write('- Last month active and new developers by type (daily and cumulative)')
-st.write('- Last 3 months active and new developers by type (weekly and cumulative)')
+st.write('- Last 3 months active and new developers by type (daily and cumulative)')
+st.write('- Last 6 months active and new developers by type (weekly and cumulative)')
 st.write('- Active and new developers over time by type (monthly and cumulative)')
 st.write('')
 
@@ -1924,7 +1924,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '1 MONTH'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc
   )
@@ -1954,7 +1954,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc
   )
@@ -2018,7 +2018,7 @@ news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc 
   )
@@ -2051,7 +2051,7 @@ news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
+from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
   group by 1
 order by 1 asc 
   )
@@ -2148,7 +2148,7 @@ fig1.add_trace(go.Bar(x=df['date'],
                 , yaxis='y'))
 fig1.add_trace(go.Line(x=df['date'],
                 y=df['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2179,7 +2179,7 @@ fig2.add_trace(go.Bar(x=df2['date'],
                 , yaxis='y'))
 fig2.add_trace(go.Line(x=df2['date'],
                 y=df2['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2211,7 +2211,7 @@ fig3.add_trace(go.Bar(x=df3['date'],
                 , yaxis='y'))
 fig3.add_trace(go.Line(x=df3['date'],
                 y=df3['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2256,7 +2256,7 @@ fig1.add_trace(go.Bar(x=df4['date'],
                 , yaxis='y'))
 fig1.add_trace(go.Line(x=df4['date'],
                 y=df4['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2287,7 +2287,7 @@ fig2.add_trace(go.Bar(x=df5['date'],
                 , yaxis='y'))
 fig2.add_trace(go.Line(x=df5['date'],
                 y=df5['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2319,7 +2319,7 @@ fig3.add_trace(go.Bar(x=df6['date'],
                 , yaxis='y'))
 fig3.add_trace(go.Line(x=df6['date'],
                 y=df6['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2365,7 +2365,7 @@ fig1.add_trace(go.Bar(x=df['date'],
                 , yaxis='y'))
 fig1.add_trace(go.Line(x=df['date'],
                 y=df['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2396,7 +2396,7 @@ fig2.add_trace(go.Bar(x=df2['date'],
                 , yaxis='y'))
 fig2.add_trace(go.Line(x=df2['date'],
                 y=df2['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2428,7 +2428,7 @@ fig3.add_trace(go.Bar(x=df3['date'],
                 , yaxis='y'))
 fig3.add_trace(go.Line(x=df3['date'],
                 y=df3['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2475,7 +2475,7 @@ fig1.add_trace(go.Bar(x=df['date'],
                 , yaxis='y'))
 fig1.add_trace(go.Line(x=df['date'],
                 y=df['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2506,7 +2506,7 @@ fig2.add_trace(go.Bar(x=df2['date'],
                 , yaxis='y'))
 fig2.add_trace(go.Line(x=df2['date'],
                 y=df2['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2538,7 +2538,7 @@ fig3.add_trace(go.Bar(x=df3['date'],
                 , yaxis='y'))
 fig3.add_trace(go.Line(x=df3['date'],
                 y=df3['price_usd'],
-                name='USD price',
+                name='NEAR price (USD)',
                 marker_color='rgb(11, 78, 154)'
                 , yaxis='y2'))
 
@@ -2586,7 +2586,7 @@ WITH
   distinct author as users,
   min(createdat::date) as debut
   from near.beta.github_activity
-    where updatedat between CURRENT_DATE-INTERVAL '3 MONTH' and CURRENT_DATE-INTERVAL '2 MONTH'
+    where updatedat between CURRENT_DATE-INTERVAL '3 MONTHS' and CURRENT_DATE-INTERVAL '2 MONTHS'
   group by 1
   ),
   users_retention as (
@@ -2617,7 +2617,7 @@ datediff('day',tx_date, date) as n_days, user
 from final
 qualify tx_date is not null
 )
-select count(DISTINCT(user)) as total_user,
+select 
 case when n_days = 0 then 'Same Day'
 when n_days = 1 then '1 Day'
 when n_days between 1 and 7 then 'Less than a week'
@@ -2628,7 +2628,8 @@ when n_days between 91 and 120 then 'After Three months'
 when n_days between 121 and 150 then 'After Four months'
 when n_days between 151 and 180 then 'After Five months'
 when n_days between 181 and 210 then 'After Six months'
-when n_days > 210 then 'More than six months' end as duration 
+when n_days > 210 then 'More than six months' end as duration_time,
+count(DISTINCT(user)) as total_users
 from final_2
 group by 2
 
@@ -2645,7 +2646,7 @@ with retention as (
   from near.beta.github_activity
 )
 SELECT
-date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '1 MONTH'
+date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '3 MONTHS'
 group by 1 order by 1
 
 """
@@ -2661,7 +2662,7 @@ with retention as (
   from near.beta.github_activity
 )
 SELECT
-date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '3 MONTHS'
+date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '6 MONTHS'
 group by 1 order by 1
 
 """
@@ -2715,8 +2716,8 @@ st.subheader('Near developer retention')
 st.write('The final batch of metrics to be analyzed are those related to the Near developer retention.')
 st.write('In concrete, the following charts shows:')
 st.write('- User retention over the past month')
-st.write('- Daily developer retention over the past month')
-st.write('- Weekly developer retention over the past 3 months')
+st.write('- Daily developer retention over the past 3 months')
+st.write('- Weekly developer retention over the past 6 months')
 st.write('- Monthly developer retention over time')
 st.write('- Distribution of developers by time retained')
 st.write('')
@@ -2738,7 +2739,7 @@ fig1.add_trace(go.Line(x=df3['date'],
                 , yaxis='y'))
 
 fig1.update_layout(
-    title='Daily developer retention over the past month',
+    title='Daily developer retention over the past 3 months',
     xaxis_tickfont_size=14,
     legend=dict(
         x=0,
@@ -2763,7 +2764,7 @@ fig2.add_trace(go.Bar(x=df4['date'],
                 , yaxis='y'))
 
 fig2.update_layout(
-    title='Weekly developer retention over the past 3 months',
+    title='Weekly developer retention over the past 6 months',
     xaxis_tickfont_size=14,
     legend=dict(
         x=0,
@@ -2817,7 +2818,7 @@ with tab3:
     st.plotly_chart(fig3, theme="streamlit", use_container_width=True)
 
 
-fig1 = px.line(df2, x="duration", y="total_user", color="duration", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig1 = px.line(df2, x="duration_time", y="total_users", color="duration_time", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig1.update_layout(
     title='Distribution of developers by retention time',
     xaxis_tickfont_size=14,
@@ -2846,16 +2847,6 @@ st.markdown('This app has been done by **_Adrià Parcerisas_**, a PhD Biomedical
 st.write('')
 st.markdown('The full sources used to develop this app can be found to the following link: [Github link](https://github.com/adriaparcerisas/Near-developer-activity)')
 st.markdown('_Powered by [Flipside Crypto](https://flipsidecrypto.xyz) and [MetricsDAO](https://metricsdao.notion.site)_')
-
-
-# In[ ]:
-
-
-
-
-
-
-# In[ ]:
 
 
 
