@@ -2757,7 +2757,7 @@ fig1.update_yaxes(title_text="Daily developer retention", secondary_y=False)
 # Create figure with secondary y-axis
 fig2 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig2.add_trace(go.Bar(x=df4['date'],
+fig2.add_trace(go.Line(x=df4['date'],
                 y=df4['retained_users'],
                 name='# of users',
                 marker_color='rgb(163, 203, 249)'
@@ -2783,7 +2783,7 @@ fig2.update_yaxes(title_text="Weekly developer retention", secondary_y=False)
 
 # Create figure with secondary y-axis
 fig3 = make_subplots(specs=[[{"secondary_y": True}]])
-fig3.add_trace(go.Bar(x=df5['date'],
+fig3.add_trace(go.Line(x=df5['date'],
                 y=df5['retained_users'],
                 name='# of users',
                 marker_color='rgb(163, 203, 249)'
@@ -2818,7 +2818,7 @@ with tab3:
     st.plotly_chart(fig3, theme="streamlit", use_container_width=True)
 
 
-fig1 = px.line(df2, x="duration_time", y="total_users", color="duration_time", color_discrete_sequence=px.colors.qualitative.Vivid)
+fig1 = px.bar(df2, x="duration_time", y="total_users", color="duration_time", color_discrete_sequence=px.colors.qualitative.Vivid)
 fig1.update_layout(
     title='Distribution of developers by retention time',
     xaxis_tickfont_size=14,
