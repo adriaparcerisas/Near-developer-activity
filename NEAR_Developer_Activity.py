@@ -544,12 +544,12 @@ with tab3:
 # Create figure with secondary y-axis
 fig4 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig4.add_trace(go.Bar(x=df4['date'],
+fig4.add_trace(go.Bar(x=df4['debut'],
                 y=df4['new_developers'],
                 name='# of users',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig4.add_trace(go.Line(x=df4['date'],
+fig4.add_trace(go.Line(x=df4['debut'],
                 y=df4['cum_new_developers'],
                 name='# of users',
                 marker_color='rgb(11, 78, 154)'
@@ -576,12 +576,12 @@ fig4.update_yaxes(title_text="Total new Near developers", secondary_y=True)
 # Create figure with secondary y-axis
 fig5 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig5.add_trace(go.Bar(x=df5['date'],
+fig5.add_trace(go.Bar(x=df5['debut'],
                 y=df5['new_developers'],
                 name='# of users',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig5.add_trace(go.Line(x=df5['date'],
+fig5.add_trace(go.Line(x=df5['debut'],
                 y=df5['cum_new_developers'],
                 name='# of users',
                 marker_color='rgb(11, 78, 154)'
@@ -609,12 +609,12 @@ fig5.update_yaxes(title_text="Total weekly Near developers", secondary_y=True)
 # Create figure with secondary y-axis
 fig6 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig6.add_trace(go.Bar(x=df6['date'],
+fig6.add_trace(go.Bar(x=df6['debut'],
                 y=df6['new_developers'],
                 name='# of users',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig6.add_trace(go.Line(x=df6['date'],
+fig6.add_trace(go.Line(x=df6['debut'],
                 y=df6['cum_new_developers'],
                 name='# of users',
                 marker_color='rgb(11, 78, 154)'
@@ -763,12 +763,12 @@ with tab3:
 # Create figure with secondary y-axis
 fig4 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig4.add_trace(go.Bar(x=df10['date'],
+fig4.add_trace(go.Bar(x=df10['debut'],
                 y=df10['new_repositories'],
                 name='# of repos',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig4.add_trace(go.Line(x=df10['date'],
+fig4.add_trace(go.Line(x=df10['debut'],
                 y=df10['cum_new_repositories'],
                 name='# of repos',
                 marker_color='rgb(11, 78, 154)'
@@ -795,12 +795,12 @@ fig4.update_yaxes(title_text="Total new Near repositories", secondary_y=True)
 # Create figure with secondary y-axis
 fig5 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig5.add_trace(go.Bar(x=df11['date'],
+fig5.add_trace(go.Bar(x=df11['debut'],
                 y=df11['new_repositories'],
                 name='# of repos',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig5.add_trace(go.Line(x=df11['date'],
+fig5.add_trace(go.Line(x=df11['debut'],
                 y=df11['cum_new_repositories'],
                 name='# of repos',
                 marker_color='rgb(11, 78, 154)'
@@ -828,12 +828,12 @@ fig5.update_yaxes(title_text="Total weekly Near repositories", secondary_y=True)
 # Create figure with secondary y-axis
 fig6 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig6.add_trace(go.Bar(x=df12['date'],
+fig6.add_trace(go.Bar(x=df12['debut'],
                 y=df12['new_repositories'],
                 name='# of repos',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig6.add_trace(go.Line(x=df12['date'],
+fig6.add_trace(go.Line(x=df12['debut'],
                 y=df12['cum_new_repositories'],
                 name='# of repos',
                 marker_color='rgb(11, 78, 154)'
@@ -983,12 +983,12 @@ with tab3:
 # Create figure with secondary y-axis
 fig4 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig4.add_trace(go.Bar(x=df7['date'],
+fig4.add_trace(go.Bar(x=df7['debut'],
                 y=df7['new_pulls'],
                 name='# of repos',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig4.add_trace(go.Line(x=df7['date'],
+fig4.add_trace(go.Line(x=df7['debut'],
                 y=df7['cum_new_pulls'],
                 name='# of repos',
                 marker_color='rgb(11, 78, 154)'
@@ -1015,12 +1015,12 @@ fig4.update_yaxes(title_text="Total new Near pulls", secondary_y=True)
 # Create figure with secondary y-axis
 fig5 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig5.add_trace(go.Bar(x=df8['date'],
+fig5.add_trace(go.Bar(x=df8['debut'],
                 y=df8['new_pulls'],
                 name='# of repos',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig5.add_trace(go.Line(x=df8['date'],
+fig5.add_trace(go.Line(x=df8['debut'],
                 y=df8['cum_new_pulls'],
                 name='# of repos',
                 marker_color='rgb(11, 78, 154)'
@@ -1048,12 +1048,12 @@ fig5.update_yaxes(title_text="Total weekly Near pulls", secondary_y=True)
 # Create figure with secondary y-axis
 fig6 = make_subplots(specs=[[{"secondary_y": True}]])
 
-fig6.add_trace(go.Bar(x=df9['date'],
+fig6.add_trace(go.Bar(x=df9['debut'],
                 y=df9['new_pulls'],
                 name='# of repos',
                 marker_color='rgb(163, 203, 249)'
                 , yaxis='y'))
-fig6.add_trace(go.Line(x=df9['date'],
+fig6.add_trace(go.Line(x=df9['debut'],
                 y=df9['cum_new_pulls'],
                 name='# of repos',
                 marker_color='rgb(11, 78, 154)'
