@@ -180,7 +180,7 @@ with news as (
   debut,
   count(distinct pulls) as new_pulls,
   sum(new_pulls) over (order by debut) as cum_new_pulls
-from news where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc 
 
@@ -234,7 +234,7 @@ with news as (
   debut,
   count(distinct repositories) as new_repositories,
   sum(new_repositories) over (order by debut) as cum_new_repositories
-from news where debut>=CURRENT_DATE-INTERVAL '1 MONTH'
+from news where debut>=CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
 order by 1 asc 
 
