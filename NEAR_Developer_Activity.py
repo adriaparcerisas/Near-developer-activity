@@ -2584,7 +2584,7 @@ WITH
   distinct author as users,
   min(createdat::date) as debut
   from near.beta.github_activity
-    where updatedat between CURRENT_DATE-INTERVAL '3 MONTHS' and CURRENT_DATE-INTERVAL '2 MONTHS'
+    where updatedat between CURRENT_DATE-INTERVAL '4 MONTHS' and CURRENT_DATE-INTERVAL '3 MONTHS'
   group by 1
   ),
   users_retention as (
@@ -2593,7 +2593,7 @@ distinct author as users,
   updatedat::date as date
   from near.beta.github_activity
   where author in (select users from new_users)
-  and updatedat >=CURRENT_DATE-INTERVAL '1 MONTH'
+  and updatedat >=CURRENT_DATE-INTERVAL '2 MONTHS'
   )
 select 
 count(distinct x.users) as total_users,
@@ -2644,7 +2644,7 @@ with retention as (
   from near.beta.github_activity
 )
 SELECT
-date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '3 MONTHS'
+date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '4 MONTHS'
 group by 1 order by 1
 
 """
@@ -2660,7 +2660,7 @@ with retention as (
   from near.beta.github_activity
 )
 SELECT
-date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '6 MONTHS'
+date, count(distinct author) as retained_users from retention where rank>1 and date>=current_date- INTERVAL '7 MONTHS'
 group by 1 order by 1
 
 """
