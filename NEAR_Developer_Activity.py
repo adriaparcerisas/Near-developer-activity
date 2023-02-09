@@ -2711,7 +2711,7 @@ df5.info()
 # In[22]:
 
 st.subheader('Near developer retention')
-st.write('The final batch of metrics to be analyzed are those related to the Near developer retention.')
+st.write('The final batch of metrics to be analyzed are those related to the Near developer retention. In this case, retention is calculated considering a user retained who was active in a month and was active again the following month.')
 st.write('In concrete, the following charts shows:')
 st.write('- User retention over the past month')
 st.write('- Daily developer retention over the past 3 months')
