@@ -277,8 +277,8 @@ order by 1 asc
 # In[11]:
 
 
-st.experimental_memo(ttl=1000000)
-@st.cache
+st.cache_data(ttl=1000000)
+@st.cache_data
 def compute(a):
     results=sdk.query(a)
     return results
@@ -1213,8 +1213,8 @@ order by 1 asc
 """
     
  
-st.experimental_memo(ttl=1000000)
-@st.cache
+st.cache_data(ttl=1000000)
+@st.cache_data
 def compute(a):
     results=sdk.query(a)
     return results
@@ -1608,7 +1608,7 @@ group by 1,2
 order by 1 asc 
 """
     
-@st.cache
+@st.cache_data
 def compute(a):
     results=sdk.query(a)
     return results
@@ -2094,7 +2094,7 @@ order by 1 asc
 """
 
 
-@st.cache
+@st.cache_data
 def compute(a):
     results=sdk.query(a)
     return results
@@ -2683,7 +2683,7 @@ group by 1 order by 1
 
 
 
-@st.cache
+@st.cache_data
 def compute(a):
     results=sdk.query(a)
     return results
