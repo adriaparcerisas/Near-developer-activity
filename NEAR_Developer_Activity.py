@@ -277,7 +277,7 @@ order by 1 asc
 # In[11]:
 
 
-st.cache_data(ttl=1000000)
+#st.cache_data(ttl=1000000)
 @st.cache_data
 def compute(a):
     results=sdk.query(a)
@@ -1213,7 +1213,7 @@ order by 1 asc
 """
     
  
-st.cache_data(ttl=1000000)
+#st.cache_data(ttl=1000000)
 @st.cache_data
 def compute(a):
     results=sdk.query(a)
