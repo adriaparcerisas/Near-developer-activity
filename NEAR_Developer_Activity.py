@@ -78,7 +78,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '6 MONTHS'
+from near.beta.github_activity where date>='2022-09-01'
   group by 1
 order by 1 asc 
 """
@@ -92,7 +92,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from near.beta.github_activity where date>='2022-06-01'
   group by 1
 order by 1 asc 
 
@@ -126,7 +126,7 @@ with news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
+from news where debutdate>='2022-09-01'
   group by 1
 order by 1 asc 
 
@@ -144,7 +144,7 @@ with news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1
 order by 1 asc 
 
@@ -180,7 +180,7 @@ with news as (
   debut,
   count(distinct pulls) as new_pulls,
   sum(new_pulls) over (order by debut) as cum_new_pulls
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1
 order by 1 asc 
 
@@ -198,7 +198,7 @@ with news as (
   debut,
   count(distinct pulls) as new_pulls,
   sum(new_pulls) over (order by debut) as cum_new_pulls
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1
 order by 1 asc 
 
@@ -234,7 +234,7 @@ with news as (
   debut,
   count(distinct repositories) as new_repositories,
   sum(new_repositories) over (order by debut) as cum_new_repositories
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1
 order by 1 asc 
 
@@ -251,7 +251,7 @@ with news as (
   debut,
   count(distinct repositories) as new_repositories,
   sum(new_repositories) over (order by debut) as cum_new_repositories
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1
 order by 1 asc 
 """
@@ -1126,7 +1126,7 @@ SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as developers,
   sum(developers) over (order by date) as cum_developers
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '6 MONTHS'
+from near.beta.github_activity where date>='2022-09-01'
   group by 1,2
 order by 1 asc 
 """
@@ -1137,7 +1137,7 @@ SELECT
   AUTHORASSOCIATION as type,
   count(distinct author) as developers,
   sum(developers) over (order by date) as cum_developers
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from near.beta.github_activity where date>='2022-06-01'
   group by 1,2
 order by 1 asc 
 
@@ -1170,7 +1170,7 @@ with news as (
   debut,type,
   count(distinct author) as new_developers,
   sum(new_developers) over (partition by type order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
+from news where debutdate>='2022-09-01'
   group by 1,2
 order by 1 asc 
 
@@ -1188,7 +1188,7 @@ with news as (
   debut,type,
   count(distinct author) as new_developers,
   sum(new_developers) over (partition by type order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1,2
 order by 1 asc 
 
@@ -1922,7 +1922,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '6 MONTHS'
+from near.beta.github_activity where date>='2022-09-01'
   group by 1
 order by 1 asc
   )
@@ -1952,7 +1952,7 @@ count(distinct id) as pulls,
   sum(pulls) over (order by date) as cum_pulls,
   count(distinct repo) as repositories,
   sum(repositories) over (order by date) as cum_repositories
-from near.beta.github_activity where date>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from near.beta.github_activity where date>='2022-06-01'
   group by 1
 order by 1 asc
   )
@@ -2016,7 +2016,7 @@ news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '6 MONTHS'
+from news where debutdate>='2022-09-01'
   group by 1
 order by 1 asc 
   )
@@ -2049,7 +2049,7 @@ news as (
   debut,
   count(distinct author) as new_developers,
   sum(new_developers) over (order by debut) as cum_new_developers
-from news where debut>=CURRENT_DATE-INTERVAL '12 MONTHS'
+from news where debutdate>='2022-06-01'
   group by 1
 order by 1 asc 
   )
